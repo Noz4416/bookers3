@@ -3,8 +3,8 @@ class BooksController < ApplicationController
   end
 
   def index
-    @book =Book.new
-    @books = Books.all
+    @books = Book.all
+
   end
 
   def create
