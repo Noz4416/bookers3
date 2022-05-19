@@ -2,8 +2,6 @@
 <html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
   <head>
     <title>Bookers2App</title>
-    <meta name="csrf-param" content="authenticity_token">
-    <meta name="csrf-token" content="1cpikXHb9zYe3tSVj_tRlUiHKAfjtTkp1md8BTCVvBcWuu2xBYoPt80SWwMEMcqWQzGmes64nbSM85ui4dIZtg">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -27,13 +25,13 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-link text-light">
-                <span><i class="fa fa-home fa-w-18"></i><%= link_to " Home", user_path, class:'text-light'%></span>
+                <span><i class="fa fa-home fa-w-18"></i><%= link_to " Home", user_path(current_user), class:'text-light'%></span>
               </li>
               <li class="nav-link text-light">
                 <span><i class="fa fa-users fa-w-20"></i><%= link_to " Users", users_path, class:'text-light'%></span>
               </li>
               <li class="nav-link text-light">
-                <span><i class="fa fa-book-open fa-w 18"></i><%= link_to " Books", books_path, class:'text-light'%></span>
+                <span><i class="fa fa-book-open fa-w-18"></i><%= link_to " Books", books_path, class:'text-light'%></span>
               </li>
               <li class="nav-link text-light">
                 <span><i class="fa fa-sign-out-alt fa-w-16"></i><%= link_to " Log out", destroy_user_session_path, method: :delete, class:'text-light'%></span>

@@ -1,22 +1,20 @@
-
-  <%= render'list',book:@book,user:@user %>
-
+<%= render'list', books:@books, book:@book%>
+<div class ="col-md-8 offset-md-1">
   <h2>Book detail</h2>
-   <% @books.each do |book|%>
-   <table class = "table">
+  <% @books.each do |book|%>
+   <table class = "table table-striped">
      <thead>
        <tr>
-         <th></th>
          <th>Title</th>
          <th>Opinion</th>
-         <th></th>
        </tr>
      </thead>
      <tbody>
        <tr>
-         <td><%= book.title%></td>
-         <td><%= book.opinion%></td>
+         <td><%= @book.title%></td>
+         <td><%= @book.opinion%></td>
        </tr>
      </tbody>
    </table>
    <% end %>
+</div>
