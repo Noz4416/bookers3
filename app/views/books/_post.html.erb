@@ -6,7 +6,9 @@
   <div><%= image_tag user.get_profile_image(100,100)%></div>
   
   
+  <!--画像投稿-->
+<%= f.attachment_field :profile_image %>
+
   
   
-  
-         <%= link_to edit_user_path(current_user)%>
+        

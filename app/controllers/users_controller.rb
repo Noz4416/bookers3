@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = current_user
   end
 
   def update
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Update to successfully"
       redirect_to user_path(@user)
     else
+      @user = User.find(params[:id])
       render :edit
     end
   end

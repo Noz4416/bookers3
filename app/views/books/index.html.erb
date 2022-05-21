@@ -2,24 +2,32 @@
   <div class ="row">
      <div class ="col-md-3">
 
-    <%= render 'list', users: @user, book: @book%>
+       <%= render 'list', user: @user, book: @book%>
 
      </div>
-     
+
      <div class ="col-md-8 offset-md-1">
-      <h2>Book detail</h2>
+      <h2>Books</h2>
       <% @books.each do |book|%>
-       <table class = "table table-striped">
+
+       <table class = "table table-hover table-inverse">
          <thead>
            <tr>
-             <th>Title</th>
-             <th>Opinion</th>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
            </tr>
          </thead>
          <tbody>
            <tr>
-             <td><%= @book.title%></td>
-             <td><%= @book.opinion%></td>
+            <td>
+            <%= link_to book_path(book.id) do %>
+             <%= image_tag book.user.get_profile_image(100,100)%>
+            <% end %>
+            </td>
+            <td><%= link_to book.title,book%></td>
+            <td><%= book.body%></td>
            </tr>
          </tbody>
        </table>
@@ -27,4 +35,3 @@
       </div>
   </div>
 </div>
- 
