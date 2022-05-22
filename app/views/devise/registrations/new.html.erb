@@ -3,7 +3,8 @@
      <duv class ="col-12 px-5 pt-4">
        <h2>Sign up</h2>
 
-       <%= form_with model:@user,url: user_registration_path do |f|%> <%= render "devise/shared/error_messages", resource: resource %>
+       <%= form_with model: @user,url: user_registration_path do |f|%>
+       <%= render "devise/shared/error_messages", resource: resource %>
        <div class="field">
          <%= f.label :name%><br />
          <%= f.text_field :name,autofocus: true%>
