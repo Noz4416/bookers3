@@ -24,32 +24,40 @@
           <div class="navbar-collapse collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <li class="nav-link text-light">
-                <span><i class="fa fa-home fa-w-18"></i><%= link_to " Home", user_path(current_user), class:'text-light'%></span>
-              </li>
-              <li class="nav-link text-light">
-                <span><i class="fa fa-users fa-w-20"></i><%= link_to " Users", users_path, class:'text-light'%></span>
-              </li>
-              <li class="nav-link text-light">
-                <span><i class="fa fa-book-open fa-w-18"></i><%= link_to " Books", books_path, class:'text-light'%></span>
-              </li>
-              <li class="nav-link text-light">
-                <span><i class="fa fa-sign-out-alt fa-w-16"></i><%= link_to " Log out", destroy_user_session_path, method: :delete, class:'text-light'%></span>
-              </li>
+
+              <%= link_to user_path(current_user), class:'text-decolation-none' do %>
+                <li class="nav-link text-light"><i class= "fas fa-home fa-w-18"></i> Home</li>
+              <% end %>
+
+              <%= link_to users_path, class:'text-decolation-none' do %>
+                <li class="nav-link text-light"><i class="fas fa-users fa-w-20"></i> Users</li>
+              <% end %>
+
+              <%= link_to books_path, class:'text-decolation-none' do %>
+                <li class="nav-link text-light"><i class="fas fa-book-open fa-w-18"></i> Books</li>
+              <% end %>
+
+              <%= link_to destroy_user_session_path, method: :delete, class:'text-decolation-none' do %>
+                <li class="nav-link text-light"><i class="fas fa-sign-out-alt fa-w-16"></i> Log out</li>
+              <% end %>
 
             <% else %>
-              <li class="nav-link text-light">
-                <span><i class="fa fa-home fa-w-18"></i><%= link_to" Home", root_path, class:'text-light'%></span>
-              </li>
-              <li class="nav-link text-light">
-                <span><i class="fa fa-link fa-w-16"></i><%= link_to" About", about_path, class:'text-light'%></span>
-              </li>
-              <li class="nav-link text-light">
-                <span><i class="fa fa-user-plus fa-w-20"></i><%= link_to" Sign up", new_user_registration_path, class:'text-light'%></span>
-              </li>
-              <li class="nav-link text-light">
-                <span><i class="fa fa-sign-in-alt fa-w-16"></i><%= link_to" Log in", new_user_session_path, class:'text-light'%></span>
-              </li>
+              <%= link_to root_path, class:'text-decolation-none' do %>
+                <li class="nav-link text-light"><i class= "fas fa-home fa-w-18"></i> Home</li>
+              <% end %>
+
+              <%= link_to about_path, class:'text-decolation-none' do %>
+                <li class="nav-link text-light"><i class="fas fa-link fa-w-16"></i> About</li>
+              <% end %>
+
+              <%= link_to new_user_registration_path, class:'text-decolation-none' do %>
+                <li class="nav-link text-light"><i class="fas fa-user-plus fa-w-20"></i> Sign up</li>
+              <% end %>
+
+              <%= link_to new_user_session_path, class:'text-decolation-none' do %>
+                <li class="nav-link text-light"><i class="fas fa-sign-in-alt fa-w-16"></i> Log in</li>
+              <% end %>
+
             <% end %>
             </ul>
           </div>

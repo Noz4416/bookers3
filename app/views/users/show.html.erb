@@ -1,12 +1,13 @@
 <div class ="container px-5">
   <div class ="row">
-     <div class ="col-md-3">
+     <div class ="col-md-3 pt-4">
 
 　　　<%= render 'books/list', user: @user, book: @book%>
+　　　<%= render 'books/newbook', book: @new_book%>
 
      </div>
 
-     <div class ="col-md-8 offset-md-1">
+     <div class ="col-md-8 offset-md-1 pt-4">
       <h2>Books</h2>
 
 
@@ -23,7 +24,7 @@
           <% @books.each do |book|%>
            <tr>
             <td>
-            <%= link_to book_path(book.id) do %>
+            <%= link_to user_path(book.user) do %>
              <%= image_tag book.user.get_profile_image(100,100)%>
             <% end %>
             </td>
