@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     unless @user == current_user
       redirect_to user_path(current_user)
     end
-    
+
   end
 
   def create
@@ -40,6 +40,18 @@ class UsersController < ApplicationController
       @user = user
       render :edit
     end
+  end
+  # フォローした時の処理
+  def follow(user_id)
+    relstionships.create(followed_id: user_id)
+  end
+  # フォローを外す時の処理
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+  # フォローしているかの判定
+  def following?(user)
+    followings.include?(user)
   end
 
 

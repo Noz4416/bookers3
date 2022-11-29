@@ -9,7 +9,15 @@
         </tr>
         <tr>
           <th>introduction</th>
-          <th><%= user.introduction %>$$</th>
+          <th><%= user.introduction %></th>
+        </tr>
+        <tr>
+          <th>follows</th>
+          <th><%= user.followings.count %></th>
+        </tr>
+          <tr>
+          <th>follwers</th>
+          <th><%= user.followers.count %></th>
         </tr>
       </tbody>
      </table>
