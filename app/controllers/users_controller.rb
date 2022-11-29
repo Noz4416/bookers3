@@ -27,7 +27,8 @@ class UsersController < ApplicationController
 
   def index
     @new_book = Book.new
-    @users = User.all
+    # current_user以外のuserを取得
+    @users = User.where.not(id: current_user.id)
     @user = current_user
   end
 
@@ -40,18 +41,6 @@ class UsersController < ApplicationController
       @user = user
       render :edit
     end
-  end
-  # フォローした時の処理
-  def follow(user_id)
-    relstionships.create(followed_id: user_id)
-  end
-  # フォローを外す時の処理
-  def unfollow(user_id)
-    relationships.find_by(followed_id: user_id).destroy
-  end
-  # フォローしているかの判定
-  def following?(user)
-    followings.include?(user)
   end
 
 

@@ -13,18 +13,36 @@
         </tr>
         <tr>
           <th>follows</th>
-          <th><%= user.followings.count %></th>
+          <th>
+            <%= link_to user_followings_path(user.id) do %>
+              <%= user.followings.count %>
+            <% end %>
+          </th>
         </tr>
           <tr>
           <th>follwers</th>
-          <th><%= user.followers.count %></th>
+          <th>
+            <%= link_to user_followers_path(user.id) do %>
+              <%= user.followers.count %>
+            <% end %>
+          </th>
         </tr>
       </tbody>
      </table>
-
-     <div>
-       <%= link_to edit_user_path(user.id), class: 'btn btn-outline-secondary btn-block' do %>
-         <i class ="fas fa-user-cog fa-w-20"></i>
-       <% end %>
-     </div>
+     <!--ログインユーザーとそうでないので表示ボタンを変更-->
+     <% if user == current_user %>
+       <div>
+         <%= link_to edit_user_path(user.id), class: 'btn btn-outline-secondary btn-block' do %>
+           <i class ="fas fa-user-cog fa-w-20"></i>
+         <% end %>
+       </div>
+     <% else %>
+       <div>
+         <% if current_user.following?(user) %>
+           <%= link_to "フォローを外す", user_relationships_path(user.id), method: :delete, class: 'btn btn-success' %>
+         <% else %>
+           <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: 'btn btn-success' %>
+         <% end %>
+       </div>
+     <% end %>
 
