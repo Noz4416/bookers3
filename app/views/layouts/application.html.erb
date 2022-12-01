@@ -64,10 +64,11 @@
         </div>
       </nav>
     </header>
-
-    <%= render 'layouts/flash' %>
-    <%= yield %>
-
+    <main>
+      <%= render 'layouts/search' %>
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </main>
     <footer>
       <div class ="container mt-5">
         <div class ="row">

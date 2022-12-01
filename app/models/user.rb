@@ -34,6 +34,21 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  # 検索方法分岐
+  def self.looks(search,word)
+    if search == "perfect"
+      @user = User.where("name LIKE?", "#{word}")
+    elsif search == "forword"
+      @user = User.where("name LIKE?", "#{word}%")
+    elsif search == "backword"
+      @user = User.where("name LIKE?", "%#{word}")
+    elsif search == "partial"
+      @user = User.where("name LIKE?", "%#{word}%")
+    else
+      @user = User.all
+    end
+  end
+
 
   def get_profile_image(width,height)
     unless profile_image.attached?

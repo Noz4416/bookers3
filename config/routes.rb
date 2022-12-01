@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "home#top"
   get '/home/about' => 'home#about',as:'about'
+  get 'search' => 'searches#search'
   devise_for :users
   # ネストさせる
   resources :users, only:[:show,:edit,:index,:update] do
