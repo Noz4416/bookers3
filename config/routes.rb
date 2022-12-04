@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # どの本をいいねしたのか判別するため、ネスト
   resources :books, only:[:new,:create,:show,:index,:destroy,:edit,:update] do
     resource :favorites, only: [:create, :destroy]
+    resource :book_comments, only: [:create, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
